@@ -1,0 +1,28 @@
+{
+  "name": "sf331-microservice-02",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "start:dev": "nodemon src/index.js --legacy-watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Starassassin-github/SF331-Microservice-02.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Starassassin-github/SF331-Microservice-02/issues"
+  },
+  "homepage": "https://github.com/Starassassin-github/SF331-Microservice-02#readme",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
