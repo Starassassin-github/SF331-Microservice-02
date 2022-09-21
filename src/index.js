@@ -1,40 +1,42 @@
 const express = require('express');
 const app = express();
 const port = 3000;
-const axios = require('axios');
 
+
+// import json data from database
+const dataTodos = require('../src/database/todos.json');
+const dataUsers = require('../src/database/users.json');
+
+// Route Microservices
 app.get('/', (req, res) => {
-    res.send('Hello World!');
+    res.send('Hello Microservice You can use /todos and /users! to get our service!');
 });
 
 app.get(`/todos`, (req, res) => {
+    
+    // Query Database from microservice with json
 
-    // do a database query... return todos from database
+    try {
+        res.json(dataTodos);        
+    } catch (error) {
+        console.log(error);
 
-    axios.get("https://jsonplaceholder.typicode.com/todos")
-        .then(response => {
-            res.json(response.data)
-        })
-        .catch(err => {
-            console.error(err);
-            
-            res.sendStatus(500);
-        })
+        res.sendStatus(500);
+    }
+
 });
 
 app.get(`/users`, (req, res) => {
 
-    // do a database query... return todos from database
+    // Query Database from microservice with json
 
-    axios.get("https://jsonplaceholder.typicode.com/users")
-        .then(response => {
-            res.json(response.data)
-        })
-        .catch(err => {
-            console.error(err);
-            
-            res.sendStatus(500);
-        })
+    try {
+        res.json(dataUsers);        
+    } catch (error) {
+        console.log(error);
+
+        res.sendStatus(500);
+    }
 });
 
 
